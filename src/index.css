@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #D52B1E;
+  /* Canadian Official Red */
+  --color-secondary: #0F172A;
+  /* Slate 900 */
+  --color-cta: #020617;
+  /* Slate 950 */
+  --color-background: #F8FAFC;
+  --color-text: #020617;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text font-sans antialiased selection:bg-primary selection:text-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+}
