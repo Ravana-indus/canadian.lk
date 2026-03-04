@@ -142,7 +142,10 @@ ${formData.notes || 'None'}`;
                             "Content-Type": "application/json",
                             "Authorization": `Bearer ${supabaseKey}`
                         },
-                        body: JSON.stringify({ mobile_number: cleanPhone })
+                        body: JSON.stringify({
+                            mobile_number: cleanPhone,
+                            source: "Canadian.lk"
+                        })
                     }).then(res => res.json())
                         .then(data => console.log('SMS Function Response:', data))
                         .catch(err => console.error("SMS Edge Function network error:", err));
