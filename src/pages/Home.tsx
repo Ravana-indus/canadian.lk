@@ -24,8 +24,8 @@ export default function Home() {
                             <Link to="/apply" className="px-8 py-4 bg-cta text-white font-semibold rounded-full shadow-lg hover:bg-yellow-600 hover:shadow-xl transition-all duration-300 text-center flex-1 sm:flex-none">
                                 Calculate My Loan Limit
                             </Link>
-                            <Link to="/programs" className="px-8 py-4 bg-white border border-gray-200 text-primary font-semibold rounded-full hover:shadow-md transition-all duration-300 text-center flex-1 sm:flex-none">
-                                Browse Universities
+                            <Link to="/apply" className="px-8 py-4 bg-white border border-gray-200 text-primary font-semibold rounded-full hover:shadow-md transition-all duration-300 text-center flex-1 sm:flex-none">
+                                Apply Now
                             </Link>
                         </div>
                     </div>

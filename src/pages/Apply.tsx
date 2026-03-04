@@ -130,6 +130,11 @@ ${formData.notes || 'None'}`;
             // Fire and forget welcome SMS via Supabase Edge Function
             if (supabaseUrl && supabaseKey) {
                 try {
+                    // Standardize LK number: strip non-digits, remove leading '0' or '94'
+                    let cleanPhone = formData.mobile_no.replace(/\D/g, '');
+                    if (cleanPhone.startsWith('94')) cleanPhone = cleanPhone.substring(2);
+                    if (cleanPhone.startsWith('0')) cleanPhone = cleanPhone.substring(1);
+
                     const smsEndpoint = `${supabaseUrl}/functions/v1/welcome-sms`;
                     fetch(smsEndpoint, {
                         method: "POST",
@@ -137,12 +142,37 @@ ${formData.notes || 'None'}`;
                             "Content-Type": "application/json",
                             "Authorization": `Bearer ${supabaseKey}`
                         },
-                        body: JSON.stringify({ mobile_number: formData.mobile_no })
+                        body: JSON.stringify({ mobile_number: cleanPhone })
                     }).then(res => res.json())
                         .then(data => console.log('SMS Function Response:', data))
                         .catch(err => console.error("SMS Edge Function network error:", err));
                 } catch (smsErr) {
                     console.error("SMS Edge Function setup error:", smsErr);
+                }
+
+                // Fire and forget Welcome Email via Supabase Edge Function
+                try {
+                    const emailEndpoint = `${supabaseUrl}/functions/v1/welcome-email`;
+                    const fullName = `${formData.first_name || ''} ${formData.last_name || ''}`.trim();
+
+                    fetch(emailEndpoint, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${supabaseKey}`
+                        },
+                        body: JSON.stringify({
+                            email: formData.email,
+                            name: fullName || "Future Student",
+                            pathway: formData.custom_pathway,
+                            source: "Canadian.lk", // Added identifier for the Edge function if needed
+                            replyTo: "hello@canadian.lk"
+                        })
+                    }).then(res => res.json())
+                        .then(data => console.log('Welcome Email Response:', data))
+                        .catch(err => console.error("Welcome Email network error:", err));
+                } catch (emailErr) {
+                    console.error("Welcome Email setup error:", emailErr);
                 }
             }
 
