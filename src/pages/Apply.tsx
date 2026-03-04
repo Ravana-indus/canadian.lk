@@ -88,8 +88,27 @@ export default function Apply() {
                 }
             }
 
+            // Map Canadian.lk field values to German.lk Frappe acceptable values
+            const mappedPathway = "Student"; // Backend only accepts subset of pathways (Student, Job Seeking, etc.)
+
+            let mappedGpa = formData.custom_do_you_have_a_gpa_of_28_or_above_or_second_class_upper;
+            if (mappedGpa === "Pending Transcript") mappedGpa = "Pending Transcript "; // Frappe expects trailing space
+            if (mappedGpa === "N/A") mappedGpa = "No"; // Map N/A to No for backend compatibility
+
+            const extendedNotes = `[CANADIAN.LK LEAD]
+Requested Service: ${formData.custom_pathway}
+GPA N/A Selected: ${formData.custom_do_you_have_a_gpa_of_28_or_above_or_second_class_upper === "N/A" ? "Yes" : "No"}
+
+--- Original Notes ---
+${formData.notes || 'None'}`;
+
             const payload = {
                 ...formData,
+                custom_pathway: mappedPathway,
+                custom_do_you_have_a_gpa_of_28_or_above_or_second_class_upper: mappedGpa,
+                custom_do_you_have_german_language: "No", // Not applicable for Canada
+                custom_countryselection: "Canada", // Ensure backend classifies this correctly
+                notes: extendedNotes,
                 custom_cv: cvUrl,
                 custom_transcript: transcriptUrl,
                 custom_other_documents: otherDocsUrls.length > 0 ? otherDocsUrls.join(', ') : null
@@ -108,7 +127,24 @@ export default function Apply() {
             setSubmitStatus('success');
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // Optional: Supabase edge functions for SMS/Email can be called here
+            // Fire and forget welcome SMS via Supabase Edge Function
+            if (supabaseUrl && supabaseKey) {
+                try {
+                    const smsEndpoint = `${supabaseUrl}/functions/v1/welcome-sms`;
+                    fetch(smsEndpoint, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${supabaseKey}`
+                        },
+                        body: JSON.stringify({ mobile_number: formData.mobile_no })
+                    }).then(res => res.json())
+                        .then(data => console.log('SMS Function Response:', data))
+                        .catch(err => console.error("SMS Edge Function network error:", err));
+                } catch (smsErr) {
+                    console.error("SMS Edge Function setup error:", smsErr);
+                }
+            }
 
         } catch (error: any) {
             console.error("Submission Error:", error);
