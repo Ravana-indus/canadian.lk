@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { HeartPulse, Monitor, PenTool, Wrench, Truck, ArrowRight, Stamp } from 'lucide-react';
 import MapleLeaf from '../components/ui/MapleLeaf';
 
@@ -33,6 +34,11 @@ export default function Programs() {
 
     return (
         <div className="w-full">
+            <Helmet>
+                <title>In-Demand Programs | Canadian.lk — Healthcare, IT & Trades in Canada</title>
+                <meta name="description" content="Discover high-demand Canadian programs in Healthcare, IT, Skilled Trades, and more. PGWP-eligible pathways for Sri Lankan students." />
+                <link rel="canonical" href="https://www.canadian.lk/programs" />
+            </Helmet>
             {/* Page Header */}
             <section className="pt-40 pb-20 bg-background text-center px-4 relative overflow-hidden">
                 <MapleLeaf className="absolute -top-10 left-10 w-64 h-64 text-primary/10 z-0 transform -rotate-12" />

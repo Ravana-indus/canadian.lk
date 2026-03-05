@@ -1,4 +1,5 @@
 import { Rocket, MessageSquare, Handshake, CheckCircle2, GraduationCap, PlaneTakeoff, ArrowDown } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import MapleLeaf from '../components/ui/MapleLeaf';
 
 export default function FlightPlan() {
@@ -32,6 +33,11 @@ export default function FlightPlan() {
 
     return (
         <div className="w-full">
+            <Helmet>
+                <title>The Flight Plan | Canadian.lk — Your 5-Step Journey to Canada</title>
+                <meta name="description" content="Follow the Canadian.lk Flight Plan — a clear 5-step roadmap from your first consultation in Colombo to landing in Canada with your study permit." />
+                <link rel="canonical" href="https://www.canadian.lk/flight-plan" />
+            </Helmet>
             {/* Page Header */}
             <section className="pt-40 pb-20 bg-background text-center px-4 relative overflow-hidden">
                 <MapleLeaf className="absolute -top-10 -right-10 w-96 h-96 text-primary/10 z-0 transform rotate-45" />

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { ShieldCheck, UploadCloud, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import MapleLeaf from '../components/ui/MapleLeaf';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -191,6 +192,11 @@ ${formData.notes || 'None'}`;
 
     return (
         <div className="w-full bg-background min-h-screen pb-24">
+            <Helmet>
+                <title>Apply Now | Canadian.lk — Start Your Canadian Education Journey</title>
+                <meta name="description" content="Submit your free application to Canadian.lk. Our advisors will review your profile and guide you through admissions, loans, and visa support." />
+                <link rel="canonical" href="https://www.canadian.lk/apply" />
+            </Helmet>
             {/* Header */}
             <section className="pt-40 pb-20 bg-background text-center px-4 relative overflow-hidden">
                 <MapleLeaf className="absolute top-0 right-0 w-64 h-64 text-primary/10 z-0 transform translate-x-1/2 -translate-y-1/2" />

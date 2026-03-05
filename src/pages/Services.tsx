@@ -1,11 +1,17 @@
 import { GraduationCap, Landmark, Plane, CheckCircle2, ArrowRight, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import MapleLeaf from '../components/ui/MapleLeaf';
 import LoanCalculator from '../components/LoanCalculator';
 
 export default function Services() {
     return (
-        <div className="w-full">
+        <div className="w-full bg-background min-h-screen">
+            <Helmet>
+                <title>Our Services | Canadian.lk — Admissions, Loans & Visa Support</title>
+                <meta name="description" content="Explore Canadian.lk services: university admissions to top Canadian colleges, student loans up to CAD $65,000 at 11.95% APR, and comprehensive visa guidance." />
+                <link rel="canonical" href="https://www.canadian.lk/services" />
+            </Helmet>
             {/* Page Header */}
             <section className="pt-40 pb-20 bg-background text-center px-4 relative overflow-hidden">
                 <MapleLeaf className="absolute -top-20 -right-20 w-96 h-96 text-primary/10 z-0 transform rotate-12" />

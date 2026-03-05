@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ShieldCheck, TrendingUp, Zap, PiggyBank, GraduationCap, Briefcase, FileText, CheckCircle } from 'lucide-react';
 import MapleLeaf from '../components/ui/MapleLeaf';
 
 export default function Home() {
     return (
         <div className="w-full">
+            <Helmet>
+                <title>Canadian.lk | Study in Canada from Sri Lanka — Admissions, Loans & Visa</title>
+                <meta name="description" content="Canadian.lk connects Sri Lankan students with verified Canadian partners for university admissions, student loans up to CAD $65,000, and expert visa support." />
+                <link rel="canonical" href="https://www.canadian.lk/" />
+            </Helmet>
             {/* Hero Section */}
             <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 overflow-hidden bg-background">
                 {/* Subtle decorative background pattern */}

@@ -1,9 +1,15 @@
 import { Shield, Building, Award, Users, CheckCircle2 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import MapleLeaf from '../components/ui/MapleLeaf';
 
 export default function About() {
     return (
-        <div className="w-full">
+        <div className="w-full bg-background min-h-screen">
+            <Helmet>
+                <title>About Us | Canadian.lk — Sri Lanka's Canada Education Partner</title>
+                <meta name="description" content="Learn about Canadian.lk — our mission, trust signals, and how we connect Sri Lankan students with verified Canadian education partners." />
+                <link rel="canonical" href="https://www.canadian.lk/about" />
+            </Helmet>
             {/* Page Header */}
             <section className="pt-40 pb-20 bg-background text-center px-4 relative overflow-hidden">
                 <MapleLeaf className="absolute top-0 right-0 w-64 h-64 text-primary/10 z-0 transform translate-x-1/2 -translate-y-1/2" />

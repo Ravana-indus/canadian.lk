@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { MapPin, Phone, Mail, MessageCircle, ChevronDown, ChevronUp, Send } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import MapleLeaf from '../components/ui/MapleLeaf';
 
 export default function Contact() {
@@ -32,6 +33,11 @@ export default function Contact() {
 
     return (
         <div className="w-full">
+            <Helmet>
+                <title>Contact Us | Canadian.lk — Get in Touch with Our Advisors</title>
+                <meta name="description" content="Contact Canadian.lk for a free consultation. Reach us via WhatsApp, phone, or email. We're here to guide your Canadian education journey." />
+                <link rel="canonical" href="https://www.canadian.lk/contact" />
+            </Helmet>
             {/* Page Header */}
             <section className="pt-40 pb-20 bg-background text-center px-4 relative overflow-hidden">
                 <MapleLeaf className="absolute top-0 right-0 w-64 h-64 text-primary/10 z-0 transform translate-x-1/2 -translate-y-1/2" />
