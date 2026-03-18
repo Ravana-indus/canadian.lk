@@ -122,7 +122,22 @@ ${formData.notes || 'None'}`;
             });
 
             if (!response.ok) {
-                throw new Error(`Server error: ${response.statusText}`);
+                let errorDetails = response.statusText;
+                const responseClone = response.clone();
+                try {
+                    const data = await response.json();
+                    if (data?.details?.exception) {
+                        errorDetails = data.details.exception;
+                    } else if (data?.error) {
+                        errorDetails = data.error;
+                    }
+                } catch (jsonErr) {
+                    try {
+                        const text = await responseClone.text();
+                        if (text) errorDetails = text;
+                    } catch (textErr) {}
+                }
+                throw new Error(errorDetails || "Submission failed");
             }
 
             setSubmitStatus('success');
@@ -177,6 +192,40 @@ ${formData.notes || 'None'}`;
                         .catch(err => console.error("Welcome Email network error:", err));
                 } catch (emailErr) {
                     console.error("Welcome Email setup error:", emailErr);
+                }
+
+                // TikTok Events API (Client-side & Server-side with deduplication)
+                try {
+                    const eventId = crypto.randomUUID();
+                    console.log("Triggering TikTok event with ID:", eventId);
+
+                    // 1. Client-side Pixel trigger
+                    if ((window as any).ttq) {
+                        (window as any).ttq.track('CompleteRegistration', { event_id: eventId });
+                    }
+
+                    // 2. Server-side Events API trigger via Supabase Edge Function
+                    const tiktokEndpoint = `${supabaseUrl}/functions/v1/tiktok-event`;
+                    fetch(tiktokEndpoint, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${supabaseKey}`
+                        },
+                        body: JSON.stringify({
+                            event: "CompleteRegistration",
+                            email: formData.email,
+                            phone: formData.mobile_no,
+                            user_agent: navigator.userAgent,
+                            url: window.location.href,
+                            event_id: eventId
+                        })
+                    }).then(res => res.json())
+                        .then(data => console.log('TikTok Event Response:', data))
+                        .catch(err => console.error("TikTok Edge Function network error:", err));
+
+                } catch (tiktokErr) {
+                    console.error("TikTok Event trigger setup error:", tiktokErr);
                 }
             }
 
