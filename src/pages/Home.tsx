@@ -21,7 +21,7 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="max-w-3xl">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary leading-tight mb-6">
-                            Their journey beyond borders <span className="text-cta italic">begins with us.</span>
+                            Your journey beyond border <span className="text-cta italic">begins with us.</span>
                         </h1>
                         <p className="text-lg md:text-xl text-secondary mb-10 font-sans leading-relaxed max-w-2xl">
                             Turn your Canadian study dreams into reality. We connect you with verified Canadian partners to manage your admissions, facilitate student loans up to <strong className="text-primary font-bold">CAD $65,000</strong>, and provide expert visa support.
