@@ -1,0 +1,15 @@
+# Canadian.lk
+
+> Sri Lanka's trusted gateway to higher education, student loans up to CAD $65,000, and study permits in Canada.
+
+Canadian.lk connects Sri Lankan students with verified Canadian university partners, facilitating direct university admissions, student loans through leading commercial banks, and comprehensive study permit assistance through RCIC-licensed immigration consultants.
+
+## Core Pathways & Services
+
+- [Home](https://www.canadian.lk/): Overview of Canadian education pathways and loan limits.
+- [About Us](https://www.canadian.lk/about): Mission, trust framework, and Canadian partner network.
+- [Services](https://www.canadian.lk/services): University admissions, educational financing up to CAD $65,000, and visa support.
+- [In-Demand Programs](https://www.canadian.lk/programs): Healthcare, IT, engineering, and trades programs in Canada with PGWP eligibility.
+- [The Flight Plan](https://www.canadian.lk/flight-plan): 5-step roadmap from initial consultation in Colombo to landing in Canada.
+- [Apply Now](https://www.canadian.lk/apply): Online application portal to check loan eligibility and submit academic transcripts.
+- [Contact](https://www.canadian.lk/contact): Contact information, office location in Colombo, and consultation booking.

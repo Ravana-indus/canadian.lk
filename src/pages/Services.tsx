@@ -31,12 +31,12 @@ export default function Services() {
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <div className="lg:w-1/2 order-2 lg:order-1 relative">
                             <div className="absolute inset-0 bg-blue-50 -translate-x-4 translate-y-4 rounded-2xl -z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="University Campus" className="rounded-2xl shadow-lg w-full object-cover h-[450px]" />
+                            <img src="/images/university.jpg" alt="Canadian University Historic Campus" width="800" height="533" loading="lazy" decoding="async" className="rounded-2xl shadow-lg w-full object-cover h-[450px]" />
                             <div className="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-xl shadow-xl flex items-center">
                                 <GraduationCap size={32} className="text-cta mr-4" />
                                 <div>
                                     <p className="font-bold text-xl">Top 100+</p>
-                                    <p className="text-sm text-gray-300">Partner Institutions</p>
+                                    <p className="text-sm text-gray-100">Partner Institutions</p>
                                 </div>
                             </div>
                         </div>
@@ -104,12 +104,12 @@ export default function Services() {
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <div className="lg:w-1/2 order-2 lg:order-1 relative">
                             <div className="absolute inset-0 bg-blue-50 -translate-x-4 translate-y-4 rounded-2xl -z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1555529771-835f59fc5efe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Passport and Visa" className="rounded-2xl shadow-lg w-full object-cover h-[450px]" />
+                            <img src="/images/visa.jpg" alt="Canadian Passport and Approved Study Permit Documents" width="800" height="1200" loading="lazy" decoding="async" className="rounded-2xl shadow-lg w-full object-cover h-[450px]" />
                             <div className="absolute -top-6 -left-6 bg-cta text-white p-6 rounded-xl shadow-xl flex items-center">
                                 <Plane size={32} className="text-primary mr-4" />
                                 <div>
                                     <p className="font-bold text-xl">RCIC Partner</p>
-                                    <p className="text-sm font-medium text-primary">Consultants Network</p>
+                                    <p className="text-sm font-medium text-slate-200">Consultants Network</p>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +143,7 @@ export default function Services() {
             <section className="py-20 bg-primary text-center px-4">
                 <div className="max-w-3xl mx-auto">
                     <h2 className="text-3xl font-serif font-bold text-white mb-6">Ready to secure your spot?</h2>
-                    <p className="text-gray-300 mb-8 font-sans text-lg">Talk to an academic advisor today and map out your personalized journey.</p>
+                    <p className="text-slate-100 mb-8 font-sans text-lg">Talk to an academic advisor today and map out your personalized journey.</p>
                     <Link to="/apply" className="px-8 py-4 bg-cta text-white font-semibold rounded-full shadow-lg hover:bg-yellow-600 hover:shadow-xl transition-all duration-300 inline-block">
                         Book Your Free Consultation
                     </Link>

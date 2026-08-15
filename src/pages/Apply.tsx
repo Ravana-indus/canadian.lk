@@ -286,27 +286,27 @@ ${formData.notes || 'None'}`;
 
                             {/* Personal Info */}
                             <div>
-                                <h3 className="text-2xl font-serif font-bold text-primary border-b border-gray-100 pb-4 mb-6">1. Personal Information</h3>
+                                <h2 className="text-2xl font-serif font-bold text-primary border-b border-gray-100 pb-4 mb-6">1. Personal Information</h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="block text-sm font-medium text-secondary mb-2">First Name *</label>
-                                        <input required type="text" name="first_name" value={formData.first_name} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+                                        <label htmlFor="first_name" className="block text-sm font-medium text-secondary mb-2">First Name *</label>
+                                        <input required id="first_name" type="text" name="first_name" value={formData.first_name} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-secondary mb-2">Last Name *</label>
-                                        <input required type="text" name="last_name" value={formData.last_name} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+                                        <label htmlFor="last_name" className="block text-sm font-medium text-secondary mb-2">Last Name *</label>
+                                        <input required id="last_name" type="text" name="last_name" value={formData.last_name} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-secondary mb-2">Email Address *</label>
-                                        <input required type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+                                        <label htmlFor="email" className="block text-sm font-medium text-secondary mb-2">Email Address *</label>
+                                        <input required id="email" type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-secondary mb-2">WhatsApp Number *</label>
-                                        <input required type="tel" name="mobile_no" value={formData.mobile_no} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="+94 7X XXX XXXX" />
+                                        <label htmlFor="mobile_no" className="block text-sm font-medium text-secondary mb-2">WhatsApp Number *</label>
+                                        <input required id="mobile_no" type="tel" name="mobile_no" value={formData.mobile_no} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="+94 7X XXX XXXX" />
                                     </div>
                                     <div className="md:col-span-2">
-                                        <label className="block text-sm font-medium text-secondary mb-2">Preferred Communication Language *</label>
-                                        <select required name="custom_preferred_language_of_communication" value={formData.custom_preferred_language_of_communication} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+                                        <label htmlFor="custom_preferred_language_of_communication" className="block text-sm font-medium text-secondary mb-2">Preferred Communication Language *</label>
+                                        <select required id="custom_preferred_language_of_communication" name="custom_preferred_language_of_communication" value={formData.custom_preferred_language_of_communication} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
                                             <option value="" disabled>Select language...</option>
                                             <option value="English">English</option>
                                             <option value="Sinhala">Sinhala</option>
@@ -314,19 +314,19 @@ ${formData.notes || 'None'}`;
                                         </select>
                                     </div>
                                     <div className="md:col-span-2">
-                                        <label className="block text-sm font-medium text-secondary mb-2">Address</label>
-                                        <input type="text" name="custom_address_" value={formData.custom_address_} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+                                        <label htmlFor="custom_address_" className="block text-sm font-medium text-secondary mb-2">Address</label>
+                                        <input id="custom_address_" type="text" name="custom_address_" value={formData.custom_address_} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
                                     </div>
                                 </div>
                             </div>
 
                             {/* Academic Profile */}
                             <div>
-                                <h3 className="text-2xl font-serif font-bold text-primary border-b border-gray-100 pb-4 mb-6">2. Academic & Financial Profile</h3>
+                                <h2 className="text-2xl font-serif font-bold text-primary border-b border-gray-100 pb-4 mb-6">2. Academic & Financial Profile</h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="md:col-span-2">
-                                        <label className="block text-sm font-medium text-secondary mb-2">Primary Interest / Pathway *</label>
-                                        <select required name="custom_pathway" value={formData.custom_pathway} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+                                        <label htmlFor="custom_pathway" className="block text-sm font-medium text-secondary mb-2">Primary Interest / Pathway *</label>
+                                        <select required id="custom_pathway" name="custom_pathway" value={formData.custom_pathway} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
                                             <option value="" disabled>Select primary service...</option>
                                             <option value="University Admissions">University Admissions & PGWP Mapping</option>
                                             <option value="Student Loans">CAD $65,000 Student Loan Financing</option>
@@ -335,8 +335,8 @@ ${formData.notes || 'None'}`;
                                         </select>
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-secondary mb-2">Do you have a Degree? *</label>
-                                        <select required name="custom_do_you_have_a_degree" value={formData.custom_do_you_have_a_degree} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+                                        <label htmlFor="custom_do_you_have_a_degree" className="block text-sm font-medium text-secondary mb-2">Do you have a Degree? *</label>
+                                        <select required id="custom_do_you_have_a_degree" name="custom_do_you_have_a_degree" value={formData.custom_do_you_have_a_degree} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
                                             <option value="" disabled>Select...</option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
@@ -344,8 +344,8 @@ ${formData.notes || 'None'}`;
                                         </select>
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-secondary mb-2">GPA 2.8+ or Second Class Upper? *</label>
-                                        <select required name="custom_do_you_have_a_gpa_of_28_or_above_or_second_class_upper" value={formData.custom_do_you_have_a_gpa_of_28_or_above_or_second_class_upper} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+                                        <label htmlFor="custom_do_you_have_a_gpa_of_28_or_above_or_second_class_upper" className="block text-sm font-medium text-secondary mb-2">GPA 2.8+ or Second Class Upper? *</label>
+                                        <select required id="custom_do_you_have_a_gpa_of_28_or_above_or_second_class_upper" name="custom_do_you_have_a_gpa_of_28_or_above_or_second_class_upper" value={formData.custom_do_you_have_a_gpa_of_28_or_above_or_second_class_upper} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
                                             <option value="" disabled>Select...</option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
@@ -354,8 +354,8 @@ ${formData.notes || 'None'}`;
                                         </select>
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-secondary mb-2">A/Level: 3 Passes in one sitting? *</label>
-                                        <select required name="custom_do_you_have_3_passes_in_a_level_in_one_sitting" value={formData.custom_do_you_have_3_passes_in_a_level_in_one_sitting} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+                                        <label htmlFor="custom_do_you_have_3_passes_in_a_level_in_one_sitting" className="block text-sm font-medium text-secondary mb-2">A/Level: 3 Passes in one sitting? *</label>
+                                        <select required id="custom_do_you_have_3_passes_in_a_level_in_one_sitting" name="custom_do_you_have_3_passes_in_a_level_in_one_sitting" value={formData.custom_do_you_have_3_passes_in_a_level_in_one_sitting} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
                                             <option value="" disabled>Select...</option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
@@ -363,8 +363,8 @@ ${formData.notes || 'None'}`;
                                         </select>
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-secondary mb-2">IELTS 6.0+ (Or equivalent)? *</label>
-                                        <select required name="custom_do_you_have_ielts_60_or_above__can_archive_60" value={formData.custom_do_you_have_ielts_60_or_above__can_archive_60} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+                                        <label htmlFor="custom_do_you_have_ielts_60_or_above__can_archive_60" className="block text-sm font-medium text-secondary mb-2">IELTS 6.0+ (Or equivalent)? *</label>
+                                        <select required id="custom_do_you_have_ielts_60_or_above__can_archive_60" name="custom_do_you_have_ielts_60_or_above__can_archive_60" value={formData.custom_do_you_have_ielts_60_or_above__can_archive_60} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
                                             <option value="" disabled>Select...</option>
                                             <option value="Yes have 6.0 or better">Yes have 6.0 or better</option>
                                             <option value="No but can get">No but can get</option>
@@ -372,8 +372,8 @@ ${formData.notes || 'None'}`;
                                         </select>
                                     </div>
                                     <div className="md:col-span-2">
-                                        <label className="block text-sm font-medium text-secondary mb-2">Estimated Current Funding Capacity (LKR) *</label>
-                                        <select required name="custom_funding_capacity" value={formData.custom_funding_capacity} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+                                        <label htmlFor="custom_funding_capacity" className="block text-sm font-medium text-secondary mb-2">Estimated Current Funding Capacity (LKR) *</label>
+                                        <select required id="custom_funding_capacity" name="custom_funding_capacity" value={formData.custom_funding_capacity} onChange={handleInputChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
                                             <option value="" disabled>Select funding capacity...</option>
                                             <option value="Less than 1.5 Million LKR">Less than 1.5M LKR (Relying fully on loan)</option>
                                             <option value="LKR 1.5M - 2.5M">1.5M - 2.5M LKR</option>
@@ -386,32 +386,32 @@ ${formData.notes || 'None'}`;
 
                             {/* Documents */}
                             <div>
-                                <h3 className="text-2xl font-serif font-bold text-primary border-b border-gray-100 pb-4 mb-6">3. Document Upload</h3>
+                                <h2 className="text-2xl font-serif font-bold text-primary border-b border-gray-100 pb-4 mb-6">3. Document Upload</h2>
                                 <div className="space-y-6">
                                     <div className="bg-gray-50 p-6 rounded-2xl border border-dashed border-gray-300 relative group hover:border-cta transition-colors">
-                                        <label className="flex flex-col items-center justify-center cursor-pointer w-full h-full">
-                                            <UploadCloud className="text-gray-400 group-hover:text-cta mb-2" size={32} />
+                                        <label htmlFor="cv_file" className="flex flex-col items-center justify-center cursor-pointer w-full h-full">
+                                            <UploadCloud className="text-slate-500 group-hover:text-cta mb-2" size={32} />
                                             <span className="font-semibold text-primary mb-1">Upload CV / Resume *</span>
-                                            <span className="text-xs text-gray-400">PDF, DOC, DOCX up to 10MB</span>
-                                            <input type="file" required accept=".pdf,.doc,.docx" onChange={(e) => setCvFile(e.target.files?.[0] || null)} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+                                            <span className="text-xs text-slate-600 font-medium">PDF, DOC, DOCX up to 10MB</span>
+                                            <input id="cv_file" aria-label="Upload CV / Resume" type="file" required accept=".pdf,.doc,.docx" onChange={(e) => setCvFile(e.target.files?.[0] || null)} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                                         </label>
                                         {cvFile && <p className="text-center text-sm font-medium text-green-600 mt-2">Selected: {cvFile.name}</p>}
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="bg-gray-50 p-6 rounded-2xl border border-dashed border-gray-300 relative group hover:border-cta transition-colors">
-                                            <label className="flex flex-col items-center justify-center cursor-pointer w-full h-full">
+                                            <label htmlFor="transcript_file" className="flex flex-col items-center justify-center cursor-pointer w-full h-full">
                                                 <UploadCloud className="text-gray-400 group-hover:text-cta mb-2" size={24} />
                                                 <span className="font-medium text-primary text-sm mb-1">Academic Transcript</span>
-                                                <input type="file" accept=".pdf,.jpg,.jpeg,.png" onChange={(e) => setTranscriptFile(e.target.files?.[0] || null)} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+                                                <input id="transcript_file" aria-label="Upload Academic Transcript" type="file" accept=".pdf,.jpg,.jpeg,.png" onChange={(e) => setTranscriptFile(e.target.files?.[0] || null)} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                                             </label>
                                             {transcriptFile && <p className="text-center text-xs font-medium text-green-600 mt-2 truncate">Selected: {transcriptFile.name}</p>}
                                         </div>
                                         <div className="bg-gray-50 p-6 rounded-2xl border border-dashed border-gray-300 relative group hover:border-cta transition-colors">
-                                            <label className="flex flex-col items-center justify-center cursor-pointer w-full h-full">
+                                            <label htmlFor="other_files" className="flex flex-col items-center justify-center cursor-pointer w-full h-full">
                                                 <UploadCloud className="text-gray-400 group-hover:text-cta mb-2" size={24} />
                                                 <span className="font-medium text-primary text-sm mb-1">Other Docs (IELTS, Passport)</span>
-                                                <input type="file" multiple accept=".pdf,.jpg,.jpeg,.png" onChange={(e) => setOtherFiles(e.target.files)} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+                                                <input id="other_files" aria-label="Upload Other Documents" type="file" multiple accept=".pdf,.jpg,.jpeg,.png" onChange={(e) => setOtherFiles(e.target.files)} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                                             </label>
                                             {otherFiles && otherFiles.length > 0 && <p className="text-center text-xs font-medium text-green-600 mt-2">{otherFiles.length} file(s) selected</p>}
                                         </div>
@@ -421,8 +421,8 @@ ${formData.notes || 'None'}`;
 
                             {/* Additional Comments */}
                             <div>
-                                <label className="block text-sm font-medium text-secondary mb-2">Additional Notes / Special Requests</label>
-                                <textarea name="notes" value={formData.notes} onChange={handleInputChange} rows={4} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none" placeholder="Any specific questions regarding universities, loans, or the visa process..."></textarea>
+                                <label htmlFor="notes" className="block text-sm font-medium text-secondary mb-2">Additional Notes / Special Requests</label>
+                                <textarea id="notes" name="notes" value={formData.notes} onChange={handleInputChange} rows={4} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none" placeholder="Any specific questions regarding universities, loans, or the visa process..."></textarea>
                             </div>
 
                             {/* Submit */}

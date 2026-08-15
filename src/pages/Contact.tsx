@@ -66,8 +66,8 @@ export default function Contact() {
                                         <MapPin size={20} />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-primary mb-1">Our Office</h4>
-                                        <p className="text-secondary text-sm leading-relaxed">Dehiwala/Colombo<br />Sri Lanka<br /><span className="text-gray-400 italic">(By appointment only)</span></p>
+                                        <h3 className="font-bold text-primary mb-1">Our Office</h3>
+                                        <p className="text-secondary text-sm leading-relaxed">Dehiwala/Colombo<br />Sri Lanka<br /><span className="text-gray-500 italic">(By appointment only)</span></p>
                                     </div>
                                 </div>
 
@@ -76,9 +76,9 @@ export default function Contact() {
                                         <Phone size={20} />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-primary mb-1">Phone / WhatsApp</h4>
+                                        <h3 className="font-bold text-primary mb-1">Phone / WhatsApp</h3>
                                         <a href="https://wa.me/94751132642" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-cta transition-colors text-sm font-medium flex items-center">
-                                            <MessageCircle size={16} className="mr-2 text-green-500" /> +94 75 113 2642
+                                            <MessageCircle size={16} className="mr-2 text-green-600" /> +94 75 113 2642
                                         </a>
                                     </div>
                                 </div>
@@ -88,17 +88,17 @@ export default function Contact() {
                                         <Mail size={20} />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-primary mb-1">Email Support</h4>
+                                        <h3 className="font-bold text-primary mb-1">Email Support</h3>
                                         <a href="mailto:info@canadian.lk" className="text-secondary hover:text-cta transition-colors text-sm font-medium">info@canadian.lk</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="mt-12 bg-primary p-8 rounded-2xl text-white">
-                                <h4 className="font-serif font-bold text-xl mb-3">Fastest Response</h4>
-                                <p className="text-sm text-gray-300 mb-6">Message us directly on WhatsApp to get immediate answers.</p>
-                                <a href="https://wa.me/94751132642" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center bg-[#25D366] text-white py-3 rounded-xl font-bold hover:bg-[#1DA851] transition-colors">
-                                    <MessageCircle size={20} className="mr-2" /> Message on WhatsApp
+                                <h3 className="font-serif font-bold text-xl mb-3">Fastest Response</h3>
+                                <p className="text-sm text-slate-100 mb-6">Message us directly on WhatsApp to get immediate answers.</p>
+                                <a href="https://wa.me/94751132642" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center bg-white text-slate-900 py-3 rounded-xl font-bold hover:bg-slate-100 transition-colors shadow-md">
+                                    <MessageCircle size={20} className="mr-2 text-green-600" /> Message on WhatsApp
                                 </a>
                             </div>
                         </div>

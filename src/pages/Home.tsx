@@ -39,7 +39,7 @@ export default function Home() {
             </section>
 
             {/* Why Canadian.lk Section */}
-            <section className="py-24 bg-background relative z-10 -mt-8 rounded-t-3xl">
+            <section className="py-24 bg-background relative z-10 border-t border-slate-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4 flex items-center justify-center">
@@ -98,7 +98,7 @@ export default function Home() {
                             </p>
 
                             <div className="bg-blue-50 border-l-4 border-primary p-6 rounded-r-lg">
-                                <h4 className="font-bold text-primary mb-2 flex items-center"><CheckCircle size={18} className="mr-2" /> Important Note</h4>
+                                <h3 className="font-bold text-primary mb-2 flex items-center"><CheckCircle size={18} className="mr-2 text-primary" /> Important Note</h3>
                                 <p className="text-sm text-secondary italic">
                                     While we build a strong foundation for your future, landing a job and receiving final permit approvals will always depend on your personal academic performance, your hard work, and any updates to Canadian immigration laws.
                                 </p>
@@ -107,8 +107,8 @@ export default function Home() {
 
                         <div className="lg:w-1/2 w-full">
                             <div className="grid grid-cols-2 gap-4">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/1200px-Flag_of_Canada.svg.png" alt="Canadian Flag" className="rounded-2xl shadow-md w-full h-64 object-cover" />
-                                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80" alt="Canadian Campus" className="rounded-2xl shadow-md w-full h-64 object-cover mt-8" />
+                                <img src="/images/canada-flag.svg" alt="Official National Flag of Canada" width="600" height="400" loading="lazy" decoding="async" className="rounded-2xl shadow-md w-full h-48 sm:h-64 object-cover border border-slate-200" />
+                                <img src="/images/campus.jpg" alt="Students walking on Canadian University Campus" width="800" height="600" loading="lazy" decoding="async" className="rounded-2xl shadow-md w-full h-48 sm:h-64 object-cover mt-4 sm:mt-8" />
                             </div>
                         </div>
                     </div>

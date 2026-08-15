@@ -1,5 +1,6 @@
 import { Rocket, MessageSquare, Handshake, CheckCircle2, GraduationCap, PlaneTakeoff, ArrowDown } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import MapleLeaf from '../components/ui/MapleLeaf';
 
 export default function FlightPlan() {
@@ -67,6 +68,7 @@ export default function FlightPlan() {
             {/* Timeline Section */}
             <section className="py-24 bg-white">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary text-center mb-16">The 5-Step Roadmap</h2>
                     <div className="relative">
                         {/* Vertical Line */}
                         <div className="hidden md:block absolute left-1/2 top-4 bottom-4 w-1 bg-gray-100 transform -translate-x-1/2 rounded-full"></div>
@@ -110,9 +112,9 @@ export default function FlightPlan() {
                 <div className="max-w-3xl mx-auto">
                     <h2 className="text-3xl font-serif font-bold text-primary mb-6">Initiate Your Flight Plan</h2>
                     <p className="text-secondary mb-8 text-lg">Don't wait until the next intake is full. Start Step 1 today.</p>
-                    <a href="/contact" className="px-8 py-4 bg-cta text-white font-semibold rounded-full shadow-lg hover:bg-yellow-600 hover:shadow-xl transition-all duration-300 inline-block">
+                    <Link to="/contact" className="px-8 py-4 bg-cta text-white font-semibold rounded-full shadow-lg hover:bg-yellow-600 hover:shadow-xl transition-all duration-300 inline-block">
                         Book Your Consultation
-                    </a>
+                    </Link>
                 </div>
             </section>
         </div>

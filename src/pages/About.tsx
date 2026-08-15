@@ -41,8 +41,12 @@ export default function About() {
                         <div className="lg:w-1/2 relative">
                             <div className="absolute inset-0 bg-primary translate-x-4 translate-y-4 rounded-2xl"></div>
                             <img
-                                src="https://images.unsplash.com/photo-1503756234508-e32369269deb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                                alt="Toronto Skyline Canada"
+                                src="/images/toronto.jpg"
+                                alt="Toronto Skyline Waterfront at Golden Hour"
+                                width="1200"
+                                height="669"
+                                loading="lazy"
+                                decoding="async"
                                 className="relative z-10 rounded-2xl shadow-xl object-cover h-[400px] w-full"
                             />
                         </div>
@@ -115,7 +119,7 @@ export default function About() {
                     <p className="text-secondary text-lg max-w-3xl mx-auto leading-relaxed mb-12">
                         Behind Canadian.lk is an integrated network of former international students, seasoned financial advisors, and licensed immigration partners who collaborate to guide students to Canada.
                     </p>
-                    <p className="text-sm text-gray-400 italic">Individual consultant profiles are provided during your confidential 1-on-1 consultation session.</p>
+                    <p className="text-sm text-slate-600 italic">Individual consultant profiles are provided during your confidential 1-on-1 consultation session.</p>
                 </div>
             </section>
         </div>

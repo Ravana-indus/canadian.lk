@@ -105,15 +105,15 @@ export default function Programs() {
                                 <div className="absolute -right-4 -bottom-4 opacity-10">
                                     <Stamp size={120} />
                                 </div>
-                                <h4 className="text-xl font-bold mb-3 relative z-10">Why our guidance matters:</h4>
-                                <p className="text-gray-300 relative z-10 text-sm leading-relaxed">
-                                    <strong className="text-white">Not all programs are PGWP eligible.</strong> If you accidentally enroll in a private college program that lacks PGWP eligibility, you will be forced to leave Canada immediately after graduating. We guarantee that 100% of the programs verified through our network maintain full PGWP eligibility.
+                                <h3 className="text-xl font-bold mb-3 relative z-10">Why our guidance matters:</h3>
+                                <p className="text-slate-100 relative z-10 text-sm leading-relaxed">
+                                    <strong className="text-white font-semibold">Not all programs are PGWP eligible.</strong> If you accidentally enroll in a private college program that lacks PGWP eligibility, you will be forced to leave Canada immediately after graduating. We guarantee that 100% of the programs verified through our network maintain full PGWP eligibility.
                                 </p>
                             </div>
                         </div>
 
                         <div className="lg:w-1/2">
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Graduation employment" className="rounded-2xl shadow-xl w-full object-cover" />
+                            <img src="/images/careers.jpg" alt="Graduates working in Canadian High-Growth Careers" width="800" height="533" loading="lazy" decoding="async" className="rounded-2xl shadow-xl w-full object-cover" />
                         </div>
                     </div>
                 </div>

@@ -41,7 +41,7 @@ export default function LoanCalculator() {
                     <Calculator size={24} className="text-cta" />
                     <h3 className="font-serif font-bold text-xl">Educational Loan Estimator</h3>
                 </div>
-                <div className="text-sm text-white/90 bg-white/10 px-3 py-1 rounded-full border border-white/20">
+                <div className="text-sm font-medium text-white bg-black/40 px-3 py-1 rounded-full border border-white/30">
                     Est. Rate: 1 CAD ≈ {CAD_TO_LKR_RATE} LKR
                 </div>
             </div>
@@ -53,13 +53,13 @@ export default function LoanCalculator() {
                     <div className="flex bg-gray-100 p-1 rounded-xl">
                         <button
                             onClick={() => setProgramDuration(1)}
-                            className={`px-6 py-2 rounded-lg font-bold text-sm transition-all ${programDuration === 1 ? 'bg-white shadow-sm text-primary border border-gray-200' : 'text-gray-500 hover:text-gray-800'}`}
+                            className={`px-6 py-2 rounded-lg font-bold text-sm transition-all ${programDuration === 1 ? 'bg-white shadow-sm text-primary border border-gray-200' : 'text-slate-700 hover:text-slate-950'}`}
                         >
                             1-Year Program
                         </button>
                         <button
                             onClick={() => setProgramDuration(2)}
-                            className={`px-6 py-2 rounded-lg font-bold text-sm transition-all ${programDuration === 2 ? 'bg-white shadow-sm text-primary border border-gray-200' : 'text-gray-500 hover:text-gray-800'}`}
+                            className={`px-6 py-2 rounded-lg font-bold text-sm transition-all ${programDuration === 2 ? 'bg-white shadow-sm text-primary border border-gray-200' : 'text-slate-700 hover:text-slate-950'}`}
                         >
                             2-Year Program
                         </button>
@@ -99,9 +99,9 @@ export default function LoanCalculator() {
 
                 {/* What you need to pay row */}
                 <div className="relative border-t border-gray-100 pt-8 mt-4">
-                    <h4 className="absolute -top-3 left-6 bg-white px-3 font-bold text-primary text-sm flex items-center tracking-tight">
+                    <h3 className="absolute -top-3 left-6 bg-white px-3 font-bold text-primary text-sm flex items-center tracking-tight">
                         What you need to pay
-                    </h4>
+                    </h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Upfront */}

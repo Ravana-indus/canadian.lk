@@ -49,7 +49,12 @@ export default function Navbar() {
                 </nav>
 
                 {/* Mobile Toggle */}
-                <button className="md:hidden text-primary cursor-pointer p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                <button
+                    className="md:hidden text-primary cursor-pointer p-2"
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    aria-label="Toggle navigation menu"
+                    aria-expanded={mobileMenuOpen}
+                >
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
             </div>
