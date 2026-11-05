@@ -104,7 +104,7 @@ export default function Services() {
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <div className="lg:w-1/2 order-2 lg:order-1 relative">
                             <div className="absolute inset-0 bg-blue-50 -translate-x-4 translate-y-4 rounded-2xl -z-10"></div>
-                            <img src="/images/visa.jpg" alt="Canadian Passport and Approved Study Permit Documents" width="800" height="1200" loading="lazy" decoding="async" className="rounded-2xl shadow-lg w-full object-cover h-[450px]" />
+                            <img src="/images/toronto.jpg" alt="Toronto skyline representing Canadian immigration destination" width="800" height="1200" loading="lazy" decoding="async" className="rounded-2xl shadow-lg w-full object-cover h-[450px]" />
                             <div className="absolute -top-6 -left-6 bg-cta text-white p-6 rounded-xl shadow-xl flex items-center">
                                 <Plane size={32} className="text-primary mr-4" />
                                 <div>
