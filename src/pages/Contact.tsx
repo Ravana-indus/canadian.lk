@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Phone, Mail, MessageCircle, ChevronDown, ChevronUp, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, ChevronDown, ChevronUp, Send } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import MapleLeaf from '../components/ui/MapleLeaf';
 
@@ -76,9 +76,9 @@ export default function Contact() {
                                         <Phone size={20} />
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-primary mb-1">Phone / WhatsApp</h3>
-                                        <a href="https://wa.me/94751132642" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-cta transition-colors text-sm font-medium flex items-center">
-                                            <MessageCircle size={16} className="mr-2 text-green-600" /> +94 75 113 2642
+                                        <h3 className="font-bold text-primary mb-1">Phone</h3>
+                                        <a href="tel:+94117310103" className="text-secondary hover:text-cta transition-colors text-sm font-medium flex items-center">
+                                            <Phone size={16} className="mr-2 text-cta" /> +94 11 731 0103
                                         </a>
                                     </div>
                                 </div>
@@ -96,9 +96,9 @@ export default function Contact() {
 
                             <div className="mt-12 bg-primary p-8 rounded-2xl text-white">
                                 <h3 className="font-serif font-bold text-xl mb-3">Fastest Response</h3>
-                                <p className="text-sm text-slate-100 mb-6">Message us directly on WhatsApp to get immediate answers.</p>
-                                <a href="https://wa.me/94751132642" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center bg-white text-slate-900 py-3 rounded-xl font-bold hover:bg-slate-100 transition-colors shadow-md">
-                                    <MessageCircle size={20} className="mr-2 text-green-600" /> Message on WhatsApp
+                                <p className="text-sm text-slate-100 mb-6">Call us directly for immediate support.</p>
+                                <a href="tel:+94117310103" className="w-full flex items-center justify-center bg-white text-slate-900 py-3 rounded-xl font-bold hover:bg-slate-100 transition-colors shadow-md">
+                                    <Phone size={20} className="mr-2 text-cta" /> Call +94 11 731 0103
                                 </a>
                             </div>
                         </div>

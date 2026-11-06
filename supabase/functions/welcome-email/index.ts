@@ -36,7 +36,7 @@ Deno.serve(async (req: Request) => {
         if (isCanadian) senderName = "Canadian.lk";
         else if (isRiftUni) senderName = "RiftUni.com";
 
-        const helpPhone = "0112 581 181"; // Assuming same number based on original
+        const helpPhone = "+94 11 731 0103";
 
         const transporter = nodemailer.createTransport({
             host: "fusion.mxrouting.net",

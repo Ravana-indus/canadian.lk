@@ -8,9 +8,9 @@ const SMS_CREDENTIALS = {
 };
 
 const MESSAGES = {
-    'German.lk': "Welcome to German.lk, You will be contacted by our representative soon, if you need urgent assistance please call 0112 581 181",
-    'Canadian.lk': "Welcome to Canadian.lk! Your Canada journey begins here. A consultant will reach out shortly. For urgent help, call 0112 581 181",
-    'riftUni.com': "Welcome to RiftUni.com! Your PTE/IELTS journey begins here. A consultant will reach out shortly. For urgent help, call 0112 581 181"
+    'German.lk': "Welcome to German.lk, You will be contacted by our representative soon, if you need urgent assistance please call +94 11 731 0103",
+    'Canadian.lk': "Welcome to Canadian.lk! Your Canada journey begins here. A consultant will reach out shortly. For urgent help, call +94 11 731 0103",
+    'riftUni.com': "Welcome to RiftUni.com! Your PTE/IELTS journey begins here. A consultant will reach out shortly. For urgent help, call +94 11 731 0103"
 };
 
 const corsHeaders = {
