@@ -4,6 +4,10 @@ import { createHmac } from 'node:crypto';
 
 const PUBLIC_LEADS_URL = 'https://fawfslpqudgkagyqcbwb.supabase.co/functions/v1/public-leads';
 const ORIGIN = 'https://www.canadian.lk';
+// Portal rejects unknown keys at any level; only these attribution keys pass through.
+const ATTRIBUTION_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'landing_page_url', 'referrer_url',
+    'referral_code', 'campaign_id', 'ad_set_id', 'ad_id', 'form_id', 'fbclid', 'fbc', 'fbp', 'gclid'];
+const URL_KEYS = new Set(['landing_page_url', 'referrer_url']);
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 const json = (body: unknown, status = 200) => Response.json(body, { status });
@@ -18,7 +22,7 @@ const url = (v: unknown, field: string) => {
     const s = str(v, field, 2048);
     if (!s) return undefined;
     const u = new URL(s);
-    if (u.protocol !== 'https:') throw new Error(`Invalid ${field}`);
+    if (u.protocol !== 'https:' && u.protocol !== 'http:') throw new Error(`Invalid ${field}`);
     return u.toString();
 };
 
@@ -41,8 +45,12 @@ export async function POST(request: Request) {
         const other = Array.isArray(b.otherUrls) ? b.otherUrls.slice(0, 10).map((u: unknown, i: number) => url(u, `otherUrls[${i}]`)).filter(Boolean) : [];
         const attribution: Record<string, string> = {};
         if (b.attribution && typeof b.attribution === 'object') {
-            for (const [k, v] of Object.entries(b.attribution).slice(0, 15)) {
-                if (typeof v === 'string' && k.length <= 100 && v.length <= 500) attribution[k] = v;
+            for (const k of ATTRIBUTION_KEYS) {
+                const v = (b.attribution as Record<string, unknown>)[k];
+                if (typeof v !== 'string' || !v.trim() || v.length > 500) continue;
+                if (URL_KEYS.has(k) && !/^https?:\/\//i.test(v.trim())) continue;
+                if (URL_KEYS.has(k)) { try { new URL(v.trim()); } catch { continue; } }
+                attribution[k] = v.trim();
             }
         }
 
@@ -55,7 +63,6 @@ export async function POST(request: Request) {
             preferredLanguage: str(b.preferredLanguage, 'preferredLanguage', 50),
             address: str(b.address, 'address', 1000),
             city: str(b.city, 'city', 200),
-            pathway: 'student',
             education: str(b.education, 'education', 2000),
             languageLevel: str(b.languageLevel, 'languageLevel', 200),
             fundingSource: str(b.fundingSource, 'fundingSource', 500),
@@ -64,6 +71,7 @@ export async function POST(request: Request) {
                 hasDegree: str(b.hasDegree, 'hasDegree', 100),
                 hasALevelPasses: str(b.hasALevelPasses, 'hasALevelPasses', 100),
                 hasRequiredGpa: str(b.hasRequiredGpa, 'hasRequiredGpa', 100),
+                hasGermanLanguage: str(b.hasGermanLanguage, 'hasGermanLanguage', 100),
                 hasRequiredIelts: str(b.hasRequiredIelts, 'hasRequiredIelts', 100),
             },
             documents: {
@@ -71,8 +79,8 @@ export async function POST(request: Request) {
                 transcriptUrl: url(b.transcriptUrl, 'transcriptUrl'),
                 otherUrls: other.length ? other : undefined,
             },
-            // Set server-side so the client can't change the brand.
-            attribution: { ...attribution, brand: 'Canadian.lk', country: 'Canada', source: 'canadian.lk' },
+            // Brand comes from the portal form (formId) and the notes prefix, not attribution.
+            attribution,
             website: '',  // honeypot field the portal expects empty
         };
     } catch (e) {
