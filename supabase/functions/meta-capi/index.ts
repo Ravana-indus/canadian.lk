@@ -2,7 +2,7 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
 // Meta Conversions API relay. Browser fires the same event via fbq with the same
 // event_id, so Meta deduplicates the pair.
-const PIXEL_ID = "";  // TODO: Meta Pixel / Dataset ID (same value as src/lib/meta.ts)
+const PIXEL_ID = "2008747400528081";  // Meta Pixel / Dataset ID (same as src/lib/meta.ts)
 const API_VERSION = "v23.0";
 const ALLOWED_EVENTS = new Set(["ViewContent", "Contact", "Lead", "SubmitApplication"]);
 

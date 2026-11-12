@@ -1,6 +1,6 @@
 // Meta Pixel (browser) + Conversions API (server, via Supabase edge function `meta-capi`).
 // Each event goes to both with one event_id so Meta deduplicates them.
-const PIXEL_ID = '';  // TODO: Meta Pixel / Dataset ID (same value as supabase/functions/meta-capi)
+const PIXEL_ID = '2008747400528081';  // Meta Pixel / Dataset ID (same as supabase/functions/meta-capi)
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
