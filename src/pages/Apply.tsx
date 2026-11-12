@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { trackEvent } from '../lib/analytics';
+import { readConsent } from '../lib/consent';
 import { createClient } from '@supabase/supabase-js';
 import { ShieldCheck, UploadCloud, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
@@ -12,6 +14,7 @@ const supabase = (supabaseUrl && supabaseKey) ? createClient(supabaseUrl, supaba
 const FRAPPE_API_URL = import.meta.env.VITE_FRAPPE_LEAD_ENDPOINT || "https://frappe-lead-worker.divine-cell-37a1.workers.dev";
 
 export default function Apply() {
+    const applicationStarted = useRef(false);
     const location = useLocation();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -142,18 +145,11 @@ ${formData.notes || 'None'}`;
             }
 
             setSubmitStatus('success');
+            trackEvent('application_submitted');
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
             // Meta Pixel + Conversions API (deduplicated by event_id)
-            const metaUser = {
-                email: formData.email,
-                phone: formData.mobile_no,
-                first_name: formData.first_name,
-                last_name: formData.last_name,
-                city: formData.custom_city,
-            };
-            trackMeta('SubmitApplication', metaUser);
-            trackMeta('Lead', metaUser);
+            trackMeta('SubmitApplication');
 
             // Fire and forget welcome SMS via Supabase Edge Function
             if (supabaseUrl && supabaseKey) {
@@ -208,6 +204,7 @@ ${formData.notes || 'None'}`;
 
                 // TikTok Events API (Client-side & Server-side with deduplication)
                 try {
+                    if (readConsent()?.marketing) {
                     const eventId = crypto.randomUUID();
                     console.log("Triggering TikTok event with ID:", eventId);
 
@@ -235,6 +232,7 @@ ${formData.notes || 'None'}`;
                     }).then(res => res.json())
                         .then(data => console.log('TikTok Event Response:', data))
                         .catch(err => console.error("TikTok Edge Function network error:", err));
+                    }
 
                 } catch (tiktokErr) {
                     console.error("TikTok Event trigger setup error:", tiktokErr);
@@ -294,7 +292,12 @@ ${formData.notes || 'None'}`;
 
                 <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                     <div className="p-8 md:p-12">
-                        <form onSubmit={handleSubmit} className="space-y-10">
+                        <form onSubmit={handleSubmit} onChange={() => {
+                            if (!applicationStarted.current) {
+                                applicationStarted.current = true;
+                                trackEvent('application_started');
+                            }
+                        }} className="space-y-10">
 
                             {/* Personal Info */}
                             <div>

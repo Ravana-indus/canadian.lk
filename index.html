@@ -2,13 +2,32 @@
 <html lang="en">
 
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NP98ZXSM');</script>
-  <!-- End Google Tag Manager -->
+  <!-- Google Tag Manager loads only after advertising consent. -->
+  <script>
+    (function () {
+      let loaded = false;
+      function loadTags() {
+        let allowed = false;
+        try { allowed = JSON.parse(localStorage.getItem('canadian.lk.consent.v1') || 'null')?.marketing === true; } catch {}
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { window.dataLayer.push(arguments); }
+        gtag('consent', loaded ? 'update' : 'default', {
+          ad_storage: allowed ? 'granted' : 'denied', analytics_storage: allowed ? 'granted' : 'denied',
+          ad_user_data: allowed ? 'granted' : 'denied', ad_personalization: allowed ? 'granted' : 'denied'
+        });
+        if (!allowed || loaded) return;
+        loaded = true;
+        window.dataLayer.push({'gtm.start': Date.now(), event: 'gtm.js'});
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NP98ZXSM';
+        document.head.appendChild(script);
+      }
+      window.addEventListener('canadian:consent', loadTags);
+      window.addEventListener('storage', loadTags);
+      loadTags();
+    })();
+  </script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -83,6 +102,9 @@
     (function () {
       let loaded = false;
       function initPixel() {
+        let allowed = false;
+        try { allowed = JSON.parse(localStorage.getItem('canadian.lk.consent.v1') || 'null')?.marketing === true; } catch {}
+        if (!allowed) return;
         if (loaded) return;
         loaded = true;
         ['pointerdown', 'touchstart', 'scroll', 'keydown'].forEach(e => window.removeEventListener(e, initPixel));
@@ -95,17 +117,16 @@
           ttq.page();
         }(window, document, 'ttq');
       }
-      ['pointerdown', 'touchstart', 'scroll', 'keydown'].forEach(e => window.addEventListener(e, initPixel, { once: true, passive: true }));
+      window.addEventListener('canadian:consent', initPixel);
+      window.addEventListener('storage', initPixel);
+      initPixel();
     })();
   </script>
   <!-- TikTok Pixel Code End -->
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP98ZXSM"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
