@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MapPin, Phone, Mail, ChevronDown, ChevronUp, Send } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import MapleLeaf from '../components/ui/MapleLeaf';
+import { trackMeta } from '../lib/meta';
 
 export default function Contact() {
     const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -27,6 +28,7 @@ export default function Contact() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        trackMeta('Contact');
         // Quick demonstration form action
         alert("Thank you! Your message has been sent. An advisor will contact you shortly.");
     };

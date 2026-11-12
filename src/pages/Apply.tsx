@@ -4,6 +4,7 @@ import { ShieldCheck, UploadCloud, CheckCircle2, AlertCircle } from 'lucide-reac
 import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import MapleLeaf from '../components/ui/MapleLeaf';
+import { trackMeta } from '../lib/meta';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -142,6 +143,17 @@ ${formData.notes || 'None'}`;
 
             setSubmitStatus('success');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Meta Pixel + Conversions API (deduplicated by event_id)
+            const metaUser = {
+                email: formData.email,
+                phone: formData.mobile_no,
+                first_name: formData.first_name,
+                last_name: formData.last_name,
+                city: formData.custom_city,
+            };
+            trackMeta('SubmitApplication', metaUser);
+            trackMeta('Lead', metaUser);
 
             // Fire and forget welcome SMS via Supabase Edge Function
             if (supabaseUrl && supabaseKey) {
