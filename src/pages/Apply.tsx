@@ -151,6 +151,41 @@ ${formData.notes || 'None'}`;
             // Meta Pixel + Conversions API (deduplicated by event_id)
             trackMeta('SubmitApplication');
 
+            // Copy the lead into MigrationPortal (brand Canadian.lk / country Canada set server-side).
+            // Retries on network/5xx/429; Frappe already has the lead if this fails.
+            const portalLead = {
+                submissionId: crypto.randomUUID(),
+                firstName: formData.first_name,
+                lastName: formData.last_name,
+                email: formData.email,
+                phoneNumber: formData.mobile_no,
+                preferredLanguage: formData.custom_preferred_language_of_communication,
+                address: formData.custom_address_,
+                city: formData.custom_city,
+                education: `Requested service: ${formData.custom_pathway}`,
+                languageLevel: `IELTS 6.0+: ${formData.custom_do_you_have_ielts_60_or_above__can_archive_60}`,
+                fundingSource: formData.custom_funding_capacity,
+                notes: extendedNotes,
+                hasDegree: formData.custom_do_you_have_a_degree,
+                hasALevelPasses: formData.custom_do_you_have_3_passes_in_a_level_in_one_sitting,
+                hasRequiredGpa: formData.custom_do_you_have_a_gpa_of_28_or_above_or_second_class_upper,
+                hasRequiredIelts: formData.custom_do_you_have_ielts_60_or_above__can_archive_60,
+                cvUrl, transcriptUrl, otherUrls: otherDocsUrls,
+                attribution: Object.fromEntries([...new URLSearchParams(window.location.search)].filter(([k]) => /^(utm_|fbclid|gclid|ttclid)/.test(k))),
+            };
+            (async () => {
+                for (let attempt = 0; attempt < 3; attempt++) {
+                    try {
+                        const res = await fetch('/api/migration-lead', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(portalLead) });
+                        if (res.ok || (res.status < 500 && res.status !== 429)) {
+                            if (!res.ok) console.error('MigrationPortal sync rejected:', await res.text());
+                            return;
+                        }
+                    } catch (err) { console.error('MigrationPortal sync network error:', err); }
+                    await new Promise(r => setTimeout(r, 500 * 2 ** attempt));
+                }
+            })();
+
             // Fire and forget welcome SMS via Supabase Edge Function
             if (supabaseUrl && supabaseKey) {
                 try {
